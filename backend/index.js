@@ -15,27 +15,63 @@ const student = [
 ]
 
 app.get('/', (req, res) => {
-    res.json(student);
+    res.status(200).json({
+        status: 200,
+        message: "All students data",
+        data: student
+    });
 });
 
 app.post("/", (req, res) => {
     const { enrllNo, name, branch, semester, division, rollNo } = req.body;
     const studentData = [...student, { enrllNo, name, branch, semester, division, rollNo }];
-    res.json(studentData);
+    res.status(201).json({
+        status: 201,
+        message: "Student created successfully",
+        data: studentData
+    });
 })
 
 app.put("/:enrollNo", (req, res) => {
     const { enrollNo } = req.params;
+
+    const studentExist = student.find(std => std.enrllNo === enrollNo);
+    if (!studentExist) {
+        return res.status(404).json({
+            status: 404,
+            message: "Student not found"
+        })
+    }
+
     const { name, branch, semester, division, rollNo } = req.body;
     const updateData = student.map(
-        (std) => std.enrllNo === enrollNo ? { name, branch, semester, division, rollNo } : std);
-    res.json(updateData);
+        (std) => std.enrllNo === enrollNo ? { ...std, name, branch, semester, division, rollNo } : std);
+
+    res.status(200).json({
+        status: 200,
+        message: "Student updated successfully",
+        data: updateData
+    });
 })
 
-app.delete("/:enrollNo", (req, res) => {
+app.delete("delete/:enrollNo", (req, res) => {
     const { enrollNo } = req.params;
+
+    const studentExist = student.find(std => std.enrllNo === enrollNo);
+    if (!studentExist) {
+        return res.status(404).json({
+            status: 404,
+            message: "Student not found"
+        })
+    }
+
     const deleteData = student.filter((std) => std.enrllNo !== enrollNo);
-    res.json(deleteData);
+
+    res.status(200).json({
+        status: 200,
+        message: "Student deleted successfully",
+        data: deleteData
+    });
 });
 
 app.get("/enrollNo/:enrollNo", (req, res) => {
@@ -77,7 +113,18 @@ app.get("/search", (req, res) => {
     if (sem) {
         studentData = studentData.filter(std => std.semester === Number(sem));
     }
-    res.json(studentData);
+
+    if (!studentData || studentData.length === 0) {
+        return res.status(404).json({
+            status: 404,
+            message: "No student found with given criteria"
+        })
+    }
+    res.status(200).json({
+        status: 200,
+        message: "Students found",
+        data: studentData
+    });
 })
 
 app.listen(PORT, () => {
