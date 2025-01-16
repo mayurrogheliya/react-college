@@ -1,0 +1,15 @@
+{
+  "name": "backend-journey",
+  "version": "1.0.0",
+  "description": "leaning backend",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "Mayur Rogheliya",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
