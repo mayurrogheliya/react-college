@@ -62,6 +62,24 @@ app.get("/sem/:sem", (req, res) => {
     res.json(studentData);
 })
 
+app.get("/search", (req, res) => {
+    const { enrllNo, name, branch, sem } = req.query;
+    let studentData = student;
+    if (enrllNo) {
+        studentData = studentData.filter(std => std.enrllNo === enrllNo);
+    }
+    if (name) {
+        studentData = studentData.filter(std => std.name === name);
+    }
+    if (branch) {
+        studentData = studentData.filter(std => std.branch === branch);
+    }
+    if (sem) {
+        studentData = studentData.filter(std => std.semester === Number(sem));
+    }
+    res.json(studentData);
+})
+
 app.listen(PORT, () => {
     console.log(`Server is running on port http://localhost:${PORT}`);
 })
