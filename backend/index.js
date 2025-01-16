@@ -38,6 +38,30 @@ app.delete("/:enrollNo", (req, res) => {
     res.json(deleteData);
 });
 
+app.get("/enrollNo/:enrollNo", (req, res) => {
+    const { enrollNo } = req.params;
+    const studentData = student.filter((std) => std.enrllNo === enrollNo);
+    res.json(studentData);
+})
+
+app.get("/name/:name", (req, res) => {
+    const { name } = req.params;
+    const studentData = student.filter((std) => std.name === name);
+    res.json(studentData);
+})
+
+app.get("/branch/:branch", (req, res) => {
+    const { branch } = req.params;
+    const studentData = student.filter(std => std.branch === branch);
+    res.json(studentData);
+})
+
+app.get("/sem/:sem", (req, res) => {
+    const { sem } = req.params;
+    const studentData = student.filter(std => std.semester === Number(sem));
+    res.json(studentData);
+})
+
 app.listen(PORT, () => {
     console.log(`Server is running on port http://localhost:${PORT}`);
 })
