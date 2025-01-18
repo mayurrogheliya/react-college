@@ -1,4 +1,5 @@
 import Combined from './components/Combined'
+import ApiSimulation from './components/HookUseEffect'
 import ReactProps from './components/ReactProps'
 import StateHook from './components/StateHook'
 import ColorChange from './components/StateHook2'
@@ -11,7 +12,8 @@ function App() {
       {/* <Combined /> */}
       {/* <StateHook /> */}
       {/* <ColorChange /> */}
-      <FontWeight />
+      {/* <FontWeight /> */}
+      <ApiSimulation />
     </div>
   )
 }
