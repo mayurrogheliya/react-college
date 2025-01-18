@@ -4,6 +4,7 @@ import ReactProps from './components/ReactProps'
 import StateHook from './components/StateHook'
 import ColorChange from './components/StateHook2'
 import FontWeight from './components/StateHook3'
+import TimingWatch from './components/Timer'
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
       {/* <StateHook /> */}
       {/* <ColorChange /> */}
       {/* <FontWeight /> */}
-      <ApiSimulation />
+      {/* <ApiSimulation /> */}
+      <TimingWatch />
     </div>
   )
 }
