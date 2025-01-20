@@ -1,5 +1,6 @@
 import Combined from './components/Combined'
 import ApiSimulation from './components/HookUseEffect'
+import ImageChange from './components/ImageChange'
 import Product from './components/Product'
 import ReactProps from './components/ReactProps'
 import StateHook from './components/StateHook'
@@ -31,7 +32,8 @@ function App() {
       {/* <FontWeight /> */}
       {/* <ApiSimulation /> */}
       {/* <TimingWatch /> */}
-      <Product productData={productItem} title="Product Details" />
+      {/* <Product productData={productItem} title="Product Details" /> */}
+      <ImageChange />
     </div>
   )
 }
