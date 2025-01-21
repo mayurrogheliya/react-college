@@ -1,3 +1,4 @@
+import CleanupMaster from './components/CleanupMaster'
 import Combined from './components/Combined'
 import ApiSimulation from './components/HookUseEffect'
 import ImageChange from './components/ImageChange'
@@ -33,7 +34,8 @@ function App() {
       {/* <ApiSimulation /> */}
       {/* <TimingWatch /> */}
       {/* <Product productData={productItem} title="Product Details" /> */}
-      <ImageChange />
+      {/* <ImageChange /> */}
+      <CleanupMaster />
     </div>
   )
 }
