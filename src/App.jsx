@@ -1,5 +1,7 @@
 import CleanupMaster from './components/CleanupMaster'
 import Combined from './components/Combined'
+import CricketerMain from './components/CricketerMain'
+import CurrencyConvert from './components/CurrencyConverter'
 import ApiSimulation from './components/HookUseEffect'
 import ImageChange from './components/ImageChange'
 import Product from './components/Product'
@@ -35,7 +37,9 @@ function App() {
       {/* <TimingWatch /> */}
       {/* <Product productData={productItem} title="Product Details" /> */}
       {/* <ImageChange /> */}
-      <CleanupMaster />
+      {/* <CleanupMaster /> */}
+      {/* <CricketerMain /> */}
+      <CurrencyConvert />
     </div>
   )
 }
