@@ -10,9 +10,11 @@
 // import StateHook from './components/StateHook'
 // import ColorChange from './components/StateHook2'
 // import FontWeight from './components/StateHook3'
-import ThemeSwitcher from './components/ThemeSwitcher'
+// import ThemeSwitcher from './components/ThemeSwitcher'
 // import TimingWatch from './components/Timer'
 // import TodoList from './components/TodoList'
+
+import Pagination from "./components/Pagination"
 
 function App() {
   const productItem = [
@@ -46,7 +48,8 @@ function App() {
       {/* <SpecialChar /> */}
       {/* <ColorPicker /> */}
       {/* <TodoList /> */}
-      <ThemeSwitcher />
+      {/* <ThemeSwitcher /> */}
+      <Pagination/>
     </div>
   )
 }
