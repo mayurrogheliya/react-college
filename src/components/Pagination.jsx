@@ -31,17 +31,43 @@ function Pagination() {
 
     const recordPerPage = 5;
     const [currentPage, setCurrentPage] = useState(1);
-    const totalPages = Math.ceil(myData.length / recordPerPage);
-    const currentRecords = myData.slice(
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const filterData = myData.filter((item) => {
+        return item.name.toLowerCase().includes(searchTerm.toLowerCase());
+    })
+
+    const totalPages = Math.ceil(filterData.length / recordPerPage);
+    const currentRecords = filterData.slice(
         (currentPage - 1) * recordPerPage,
         currentPage * recordPerPage
     )
     const handlePageChange = (page) => {
         setCurrentPage(page);
     }
+
+    const handleSearch = (e) => {
+        setSearchTerm(e.target.value);
+        setCurrentPage(1);
+    }
+
     return (
         <div>
-            <table style={{ width: "50%", margin: "20px auto", textAlign: "left" }}>
+            <div style={{ textAlign: "center", margin: "20px" }}>
+                <input
+                    type="text"
+                    placeholder="Search by name..."
+                    value={searchTerm}
+                    onChange={handleSearch}
+                    style={{
+                        padding: "10px",
+                        width: "300px",
+                        border: "1px solid #ccc",
+                        borderRadius: "5px",
+                    }}
+                />
+            </div>
+            <table style={{ width: "50%", margin: "20px auto", textAlign: "left", }}>
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -79,7 +105,6 @@ function Pagination() {
                     </button>
                 ))}
             </div>
-
             {/* <div>
                 <button disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>
                     Previous
