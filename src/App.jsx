@@ -14,6 +14,9 @@
 // import TimingWatch from './components/Timer'
 // import TodoList from './components/TodoList'
 
+import { UserProvider } from "./components/context_overview/context/UserContext"
+import ContextFirst from "./components/context_overview/file1"
+import ContextSecond from "./components/context_overview/file2"
 import Pagination from "./components/Pagination"
 
 function App() {
@@ -49,7 +52,11 @@ function App() {
       {/* <ColorPicker /> */}
       {/* <TodoList /> */}
       {/* <ThemeSwitcher /> */}
-      <Pagination/>
+      {/* <Pagination/> */}
+      <UserProvider>
+        <ContextFirst />
+        <ContextSecond />
+      </UserProvider>
     </div>
   )
 }
