@@ -18,6 +18,7 @@ import { UserProvider } from "./components/context_overview/context/UserContext"
 import ContextFirst from "./components/context_overview/file1"
 import ContextSecond from "./components/context_overview/file2"
 import Pagination from "./components/Pagination"
+import ReducerExample from "./components/reducerLecture/ReducerExample"
 
 function App() {
   const productItem = [
@@ -53,10 +54,11 @@ function App() {
       {/* <TodoList /> */}
       {/* <ThemeSwitcher /> */}
       {/* <Pagination/> */}
-      <UserProvider>
+      {/* <UserProvider>
         <ContextFirst />
         <ContextSecond />
-      </UserProvider>
+        </UserProvider> */}
+      <ReducerExample />
     </div>
   )
 }
